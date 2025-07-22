@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import './Servizi.css';
 import { Link } from 'react-router-dom';
 import videoServizi from '../images/video-servizi.mp4';
-import servizio1 from '../images/card1-home.webp';
-import servizio2 from '../images/card2-home.webp';
+import servizio1 from '../images/attrezzata.png';
+import servizio2 from '../images/terrazza.png';
 import servizio3 from '../images/card3-home.webp';
 
 const servizi = [
@@ -102,9 +102,13 @@ const Servizi = () => {
           <div className="servizio-aggiuntivo-box">Parcheggio Interno</div>
           <div className="servizio-aggiuntivo-box">Spogliatoio</div>
           <div className="servizio-aggiuntivo-box">Deposito Canoe e SUP</div>
+          <div className="servizio-aggiuntivo-box">Unione Canoe e SUP</div>
+          <div className="servizio-aggiuntivo-box">Ricarica per macchine elettriche</div>
+
+
         </div>
         <div className="servizi-aggiuntivi-btn-wrapper">
-          <a href="/contatti" className="servizi-aggiuntivi-btn">Prenota Subito!</a>
+          <a href="/dove-siamo" className="servizi-aggiuntivi-btn">Prenota Subito!</a>
         </div>
       </section>
 

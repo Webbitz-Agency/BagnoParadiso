@@ -1,7 +1,7 @@
 import './Home.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import faq from '../images/faq-home.webp';
+import faq from '../images/faq.png';
 import chiSiamo from '../images/chi-siamo.png';
 
 const servizi = [
