@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import './ChiSiamo.css';
-import chiSiamoImg from '../images/canoa.jpg';
+import storia from '../images/storica.webp';
 import chiSiamoImg2 from '../images/chi-siamo.png';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const ChiSiamo = () => {
       {/* Hero Section */}
       <section className="chi-siamo-hero">
         <div className="chi-siamo-hero-bg">
-          <img src={chiSiamoImg} alt="Bagno Paradiso" className="chi-siamo-hero-img" />
+          <img src={storia} alt="Bagno Paradiso" className="chi-siamo-hero-img" />
           <div className="chi-siamo-hero-overlay"></div>
         </div>
         <div className="chi-siamo-hero-content">
