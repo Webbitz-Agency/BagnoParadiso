@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Servizi from './pages/Servizi';
 import ChiSiamo from './pages/ChiSiamo';
 import DoveSiamo from './pages/DoveSiamo';
+import Galleria from './pages/Galleria';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <Route path="/servizi" element={<Servizi />} />
               <Route path="/chi-siamo" element={<ChiSiamo />} />
               <Route path="/dove-siamo" element={<DoveSiamo />} />
+              <Route path="/galleria" element={<Galleria />} />
             </Routes>
           </AnimatePresence>
         </main>

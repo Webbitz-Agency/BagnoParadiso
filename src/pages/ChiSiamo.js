@@ -30,7 +30,7 @@ const ChiSiamo = () => {
             <h2 className="chi-siamo-main-title">La nostra storia</h2>
             <p className="chi-siamo-main-text">Il Bagno Paradiso è un luogo dove le persone si sentono in famiglia, dove trovano accoglienza e sicurezza per loro e per i loro bimbi.
 
-Una parola, un sorriso, che siamo sempre lieti di dare.
+              Una parola, un sorriso, che siamo sempre lieti di dare.
 
 In questi anni abbiamo lavorato per rendere l'ambiente più nuovo e fornire servizi per far godere delle vere vacanze e dei sani momenti di relax.</p>
             <p className="chi-siamo-main-text">Nato negli anni 30', in cui prendeva forma la stessa Tirrenia grazie ai progetti di Costanzo Ciano e Guido Buffarini Guidi, il Bagno Paradiso è un testimone privilegiato della crescita e dell'evoluzione di questa rinomata località balneare. Nel corso degli anni, pur mantenendo intatte le sue radici storiche, il Bagno Paradiso si è costantemente rinnovato, adeguandosi ai gusti e alle esigenze di una clientela diversa.</p>

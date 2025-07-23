@@ -8,14 +8,16 @@ const Navbar = () => {
   const location = useLocation();
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Chi Siamo', path: '/chi-siamo' },
     { name: 'Servizi', path: '/servizi' },
+    { name: 'Chi Siamo', path: '/chi-siamo' },
+    { name: 'Galleria', path: '/galleria' },
     { name: 'Dove Siamo', path: '/dove-siamo' },
+    
   ];
   const [navState, setNavState] = useState('default'); // 'absolute', 'fixed', 'default'
 
   useEffect(() => {
-    if (location.pathname === '/' || location.pathname === '/servizi' || location.pathname === '/chi-siamo' || location.pathname === '/dove-siamo') {
+    if (location.pathname === '/' || location.pathname === '/servizi' || location.pathname === '/chi-siamo' || location.pathname === '/dove-siamo' || location.pathname === '/galleria') {
       const handleScroll = () => {
         if (window.scrollY < 60) {
           setNavState('absolute');
@@ -32,7 +34,7 @@ const Navbar = () => {
   }, [location.pathname]);
 
   let navClass = 'navbar';
-  if (location.pathname === '/' || location.pathname === '/servizi' || location.pathname === '/chi-siamo' || location.pathname === '/dove-siamo') {
+  if (location.pathname === '/' || location.pathname === '/servizi' || location.pathname === '/chi-siamo' || location.pathname === '/dove-siamo' || location.pathname === '/galleria') {
     navClass += navState === 'absolute' ? ' navbar--absolute' : ' navbar--fixed';
     if (navState === 'absolute') navClass += ' navbar--transparent';
   }
