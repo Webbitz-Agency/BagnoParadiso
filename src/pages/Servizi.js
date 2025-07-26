@@ -102,7 +102,6 @@ const Servizi = () => {
           <div className="servizio-aggiuntivo-box">Parcheggio Interno</div>
           <div className="servizio-aggiuntivo-box">Spogliatoio</div>
           <div className="servizio-aggiuntivo-box">Deposito Canoe e SUP</div>
-          <div className="servizio-aggiuntivo-box">Unione Canoe e SUP</div>
           <div className="servizio-aggiuntivo-box">Ricarica per macchine elettriche</div>
 
 

@@ -39,7 +39,7 @@ const DoveSiamo = () => {
           </div>
           <div className="dove-siamo-main-info-col">
             <h2 className="dove-siamo-main-title">Come raggiungerci</h2>
-            <p className="dove-siamo-main-text"><b>Indirizzo:</b> Viale del Tirreno, 32, 56128 Tirrenia PI</p>
+            <p className="dove-siamo-main-text"><b>Indirizzo:</b> Viale del Tirreno, 6, 56128 Tirrenia PI</p>
             <p className="dove-siamo-main-text"><b>Telefono:</b> <a href="tel:05037448">050 37448</a></p>
             <p className="dove-siamo-main-text"><b>Email:</b> <a href="mailto:info@bagnoparadisotirrenia.it">info@bagnoparadisotirrenia.it</a></p>
             <p className="dove-siamo-main-text">Ampio parcheggio interno, facilmente raggiungibile sia in auto che con i mezzi pubblici.</p>
