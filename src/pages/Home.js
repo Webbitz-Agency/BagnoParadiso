@@ -8,19 +8,19 @@ const servizi = [
   {
     title: 'Spiaggia Attrezzata',
     description: 'Goditi il mare con tutti i comfort: ombrelloni con sdraio e lettini, cabine private, spogliatoi spaziosi e docce calde.',
-    image: require('../images/card1-home.webp'),
+    image: require('../images/attrezzata.png'),
     icon: 'fa-umbrella-beach'
   },
   {
     title: 'Terrazza sul Mare',
     description: 'Rilassati sulla nostra terrazza panoramica con vista mare, comode poltroncine e divanetti.',
-    image: require('../images/card2-home.webp'),
+    image: require('../images/terrazza.png'),
     icon: 'fa-water'
   },
   {
     title: 'Ristorante e Bar',
     description: 'Gusta i piatti della tradizione e le specialità locali nel nostro ristorante con vista mare.',
-    image: require('../images/card3-home.webp'),
+    image: require('../images/Galleria/ristorante3.jpeg'),
     icon: 'fa-utensils'
   }
 ];
