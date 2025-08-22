@@ -66,12 +66,10 @@ const Home = () => {
     <div style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>
       {/* Hero Section */}
       <section className="home-hero">
-        <img
-          className="home-hero-image"
-          src={require('../images/img-hero.jpeg')}
-          alt="Bagno Paradiso Hero"
-        />
-        <div className="home-hero-overlay"></div>
+        <div className="home-hero-bg">
+          <img src={require('../images/img-hero.jpeg')} alt="Bagno Paradiso" className="home-hero-img" />
+          <div className="home-hero-overlay"></div>
+        </div>
         <div className="home-hero-content">
           <div className="home-hero-popup">
             <h2 className="home-hero-popup-title">Sole, Divertimento e Relax!</h2>
