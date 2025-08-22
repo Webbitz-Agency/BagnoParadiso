@@ -66,25 +66,17 @@ const Home = () => {
     <div style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>
       {/* Hero Section */}
       <section className="home-hero">
-        <video
-          className="home-hero-video"
-          src={require('../images/video-hero.mp4')}
-          autoPlay
-          loop
-          muted
-          playsInline
+        <img
+          className="home-hero-image"
+          src={require('../images/img-hero.jpeg')}
+          alt="Bagno Paradiso Hero"
         />
         <div className="home-hero-overlay"></div>
         <div className="home-hero-content">
-          <h1 className="home-hero-title">Bagno Paradiso</h1>
-          <p className="home-hero-desc">Sole, Divertimento e Relax!</p>
-          <a href="tel:05037448" className="home-hero-btn">Prenota Ora</a>
-          <button className="home-hero-arrow" onClick={() => {
-            const chiSiamo = document.querySelector('.home-chi-siamo-section');
-            if(chiSiamo) chiSiamo.scrollIntoView({ behavior: 'smooth' });
-          }} aria-label="Scorri alla sezione servizi">
-            <span className="arrow-down"></span>
-          </button>
+          <div className="home-hero-popup">
+            <h2 className="home-hero-popup-title">Sole, Divertimento e Relax!</h2>
+            <a href="tel:05037448" className="home-hero-btn">Prenota Ora</a>
+          </div>
         </div>
       </section>
 

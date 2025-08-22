@@ -22,7 +22,7 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
   background: #000;
 }
 
-.home-hero-video {
+.home-hero-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,6 +30,7 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
   min-width: 0;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   z-index: 1;
   pointer-events: none;
 }
@@ -46,56 +47,65 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
 }
 
 .home-hero-content {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 3;
   color: #fff;
   text-align: center;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.home-hero-title {
+.home-hero-popup {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 3rem 4rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: popupFloat 4s ease-in-out infinite;
+}
+
+.home-hero-popup-title {
   font-family: 'Borel', cursive;
   font-style: italic;
   font-weight: 700;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.home-hero-desc {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.3rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   margin-bottom: 2rem;
-  font-weight: 400;
+  margin-top: 0;
 }
 
 .home-hero-btn {
   background: #fff;
   color: #222;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
-  padding: 0.8rem 2.2rem;
-  border-radius: 30px;
+  font-size: 1.4rem;
+  padding: 1.2rem 3rem;
+  border-radius: 40px;
   border: none;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 1px;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
   cursor: pointer;
+  animation: buttonFloat 3s ease-in-out infinite;
 }
 
 .home-hero-btn:hover {
-  background: #222;
+  background: #2563eb;
   color: #fff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  transform: translateY(-5px) scale(1.05);
 }
 
 .home-servizi-section {
@@ -254,12 +264,7 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
   .home-hero-desc {
     margin-bottom: 0.8rem;
   }
-  .home-hero-arrow {
-    margin-top: 0px;
-  }
-  .arrow-down {
-    margin-bottom: 32px !important;
-  }
+
   .home-hero-content {
     padding: 1.2rem 0.5rem;
   }
@@ -268,7 +273,7 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
     width: 100vw;
     overflow: hidden;
   }
-  .home-hero-video,
+  .home-hero-image,
   .home-hero-overlay {
     width: 100vw;
     left: 0;
@@ -475,49 +480,6 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
   }
 }
 
-/* Freccia animata sotto il bottone della hero */
-.home-hero-arrow {
-  background: none;
-  border: none;
-  margin-top: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  outline: none;
-  animation: fadeInArrow 1.2s 0.5s both;
-}
-
-.arrow-down {
-  display: block;
-  width: 36px;
-  height: 36px;
-  border-left: 4px solid #fff;
-  border-bottom: 4px solid #fff;
-  transform: rotate(-45deg);
-  margin: 0 auto;
-  margin-top: 100px;
-  box-shadow: 0 0 16px 2px #fff7, 0 0 8px 1px #2563eb55;
-  animation: arrowBounce 1.3s infinite alternate;
-  border-radius: 6px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.home-hero-arrow:hover .arrow-down {
-  border-color: #2563eb;
-  box-shadow: 0 0 24px 4px #2563eb99, 0 0 8px 1px #fff5;
-}
-
-@keyframes arrowBounce {
-  0% { transform: translateY(0) rotate(-45deg); }
-  100% { transform: translateY(18px) rotate(-45deg); }
-}
-
-@keyframes fadeInArrow {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* Chi Siamo Section */
 .home-chi-siamo-section {
   padding: 80px 0;
@@ -597,4 +559,14 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
 .home-hero-btn.chi-siamo-btn {
   margin: 0 auto;
   display: block;
+}
+
+@keyframes buttonFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes popupFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.02); }
 } 
