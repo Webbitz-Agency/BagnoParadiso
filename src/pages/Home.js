@@ -67,7 +67,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="home-hero">
         <div className="home-hero-bg">
-          <img src={require('../images/img-hero.jpeg')} alt="Bagno Paradiso" className="home-hero-img" />
+          <img src={require('../images/img-hero.png')} alt="Bagno Paradiso" className="home-hero-img" />
           <div className="home-hero-overlay"></div>
         </div>
         <div className="home-hero-content">
