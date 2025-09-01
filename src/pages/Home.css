@@ -42,6 +42,12 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
   top: 0;
   left: 0;
   z-index: 1;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .home-hero-overlay {
@@ -50,8 +56,29 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0,0,0,0.15);
   z-index: 2;
+}
+
+.home-hero-welcome {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+
+.home-hero-welcome-text {
+  font-family: 'Borel', cursive;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  padding: 0 20px;
+  letter-spacing: 2px;
 }
 
 .home-hero-content {
@@ -296,6 +323,11 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
     width: 100vw;
     left: 0;
   }
+  
+  .home-hero-welcome-text {
+    font-size: 2rem;
+    padding: 0 15px;
+  }
 
   
   .home-chi-siamo-section,
@@ -370,6 +402,11 @@ body, .home-hero, .home-servizi-section, .home-cta-section {
   .home-hero-btn {
     font-size: 1.1rem;
     padding: 0.8rem 2rem;
+  }
+  
+  .home-hero-welcome-text {
+    font-size: 1.5rem;
+    padding: 0 10px;
   }
 }
 

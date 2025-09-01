@@ -70,11 +70,8 @@ const Home = () => {
           <img src={require('../images/img-hero.jpeg')} alt="Bagno Paradiso" className="home-hero-img" />
           <div className="home-hero-overlay"></div>
         </div>
-        <div className="home-hero-content">
-          <div className="home-hero-popup">
-            <h2 className="home-hero-popup-title">Sole, Divertimento e Relax!</h2>
-            <a href="tel:05037448" className="home-hero-btn">Prenota Ora</a>
-          </div>
+        <div className="home-hero-welcome">
+          <h1 className="home-hero-welcome-text">Benvenuto al Bagno Paradiso!</h1>
         </div>
       </section>
 
