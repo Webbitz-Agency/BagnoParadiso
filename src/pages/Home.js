@@ -1,8 +1,10 @@
 import './Home.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import faq from '../images/faq.png';
 import chiSiamo from '../images/chi-siamo.png';
+import ScrollReveal, { ScrollRevealChild } from '../components/ScrollReveal';
 
 const servizi = [
   {
@@ -70,15 +72,20 @@ const Home = () => {
           <img src={require('../images/img-hero.jpeg')} alt="Bagno Paradiso" className="home-hero-img" />
           <div className="home-hero-overlay"></div>
         </div>
-        <div className="home-hero-welcome">
+        <motion.div
+          className="home-hero-welcome"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <h1 className="home-hero-welcome-text">Benvenuto al Bagno Paradiso!</h1>
-        </div>
+        </motion.div>
       </section>
 
       {/* Chi Siamo Section */}
       <section className="home-chi-siamo-section">
         <div className="home-chi-siamo-grid">
-          <div className="home-chi-siamo-content">
+          <ScrollReveal variant="fadeRight" className="home-chi-siamo-content">
             <h2 className="home-chi-siamo-title">Chi Siamo</h2>
             <p className="home-chi-siamo-desc">
               Dal 1985, il Bagno Paradiso è sinonimo di qualità e accoglienza sulla costa tirrenica. 
@@ -86,55 +93,61 @@ const Home = () => {
               un'oasi di relax dove ogni cliente si sente come a casa propria.
             </p>
             <Link to="/chi-siamo" className="home-hero-btn chi-siamo-btn">Scopri di più</Link>
-          </div>
-          <div className="home-chi-siamo-img-col">
+          </ScrollReveal>
+          <ScrollReveal variant="fadeLeft" delay={0.2} className="home-chi-siamo-img-col">
             <img src={chiSiamo} alt="Bagno Paradiso" className="home-chi-siamo-img" />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Servizi Section */}
       <section className="home-servizi-section">
-        <h2 className="home-servizi-title">I Nostri Servizi</h2>
-        <p className="home-servizi-desc">Scopri tutto ciò che possiamo offrirti</p>
-        <div className="home-servizi-list">
+        <ScrollReveal variant="fadeUp">
+          <h2 className="home-servizi-title">I Nostri Servizi</h2>
+          <p className="home-servizi-desc">Scopri tutto ciò che possiamo offrirti</p>
+        </ScrollReveal>
+        <ScrollReveal variant="fadeUp" staggerChildren={0.15} className="home-servizi-list">
           {servizi.map((servizio, idx) => (
-            <div className="home-servizio-card" key={idx}>
+            <ScrollRevealChild variant="scaleUp" key={idx} className="home-servizio-card">
               <img src={servizio.image} alt={servizio.title} className="home-servizio-img" />
               <i className={`home-servizio-icon fas ${servizio.icon}`}></i>
               <div className="home-servizio-title">{servizio.title}</div>
               <div className="home-servizio-desc">{servizio.description}</div>
-            </div>
+            </ScrollRevealChild>
           ))}
-        </div>
-        <div style={{textAlign: 'center', marginTop: 32}}>
-          <Link to="/servizi" className="home-hero-btn servizi-btn">Vedi tutti i servizi</Link>
-        </div>
+        </ScrollReveal>
+        <ScrollReveal variant="fadeUp" delay={0.3}>
+          <div style={{textAlign: 'center', marginTop: 32}}>
+            <Link to="/servizi" className="home-hero-btn servizi-btn">Vedi tutti i servizi</Link>
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* FAQ Section */}
       <section className="home-faq-section">
         <div className="home-faq-grid">
           {/* Colonna FAQ (accordion) */}
-          <div className="home-faq-col">
+          <ScrollReveal variant="fadeRight" className="home-faq-col">
             <h2 className="home-faq-title">Domande Frequenti</h2>
             <p className="home-faq-subtitle">Scopri tutto ciò che puoi chiedere al Bagno Paradiso</p>
             <Accordion />
-          </div>
+          </ScrollReveal>
           {/* Colonna immagine */}
-          <div className="home-faq-img-col">
+          <ScrollReveal variant="fadeLeft" delay={0.2} className="home-faq-img-col">
             <div className="home-faq-img-card">
               <img src={faq} alt="FAQ Bagno Paradiso" className="home-faq-img" />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="home-cta-section">
-        <h2 className="home-cta-title">Vieni a Trovarci</h2>
-        <p className="home-cta-desc">Ti aspettiamo per una giornata indimenticabile al mare</p>
-        <a href="tel:05037448" className="home-cta-btn">Chiamaci Ora</a>
+        <ScrollReveal variant="fadeUp">
+          <h2 className="home-cta-title">Vieni a Trovarci</h2>
+          <p className="home-cta-desc">Ti aspettiamo per una giornata indimenticabile al mare</p>
+          <a href="tel:05037448" className="home-cta-btn">Chiamaci Ora</a>
+        </ScrollReveal>
       </section>
     </div>
   );

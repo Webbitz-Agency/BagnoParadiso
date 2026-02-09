@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import './Servizi.css';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import videoServizi from '../images/video-servizi.mp4';
 import servizio1 from '../images/attrezzata.png';
 import servizio2 from '../images/terrazza.png';
 import servizio3 from '../images/card3-home.webp';
+import ScrollReveal, { ScrollRevealChild } from '../components/ScrollReveal';
 
 const servizi = [
   {
@@ -58,17 +60,27 @@ const Servizi = () => {
           <video src={videoServizi} autoPlay loop muted playsInline className="servizi-hero-video" />
           <div className="servizi-hero-overlay"></div>
         </div>
-        <div className="servizi-hero-content">
+        <motion.div
+          className="servizi-hero-content"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <h1 className="servizi-hero-title">I Nostri Servizi</h1>
           <p className="servizi-hero-desc">Scopri tutti i servizi che offriamo per rendere la tua giornata al mare indimenticabile</p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Servizi List */}
       <section className="servizi-list-section">
         <div className="servizi-list-container">
           {servizi.map((servizio, idx) => (
-            <div className="servizio-card" key={idx}>
+            <ScrollReveal
+              variant={idx % 2 === 0 ? 'fadeRight' : 'fadeLeft'}
+              delay={0.1}
+              className="servizio-card"
+              key={idx}
+            >
               <div className="servizio-img-container">
                 <img src={servizio.image} alt={servizio.title} className="servizio-img" />
               </div>
@@ -84,43 +96,40 @@ const Servizi = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
 
       {/* Sezione Servizi Aggiuntivi */}
       <section className="servizi-aggiuntivi-section">
-        <h2 className="servizi-aggiuntivi-title">Servizi Aggiuntivi</h2>
-        <div className="servizi-aggiuntivi-grid">
-          <div className="servizio-aggiuntivo-box">Toilette Bimbi</div>
-          <div className="servizio-aggiuntivo-box">Baby Park</div>
-          <div className="servizio-aggiuntivo-box">Parco Gioco Bimbi</div>
-          <div className="servizio-aggiuntivo-box">Canoe</div>
-          <div className="servizio-aggiuntivo-box">SUP</div>
-          <div className="servizio-aggiuntivo-box">Pedalò</div>
-          <div className="servizio-aggiuntivo-box">Parcheggio Interno</div>
-          <div className="servizio-aggiuntivo-box">Spogliatoio</div>
-          <div className="servizio-aggiuntivo-box">Deposito Canoe e SUP</div>
-          <div className="servizio-aggiuntivo-box">Ricarica per macchine elettriche</div>
-
-
-        </div>
-        <div className="servizi-aggiuntivi-btn-wrapper">
-          <a href="/dove-siamo" className="servizi-aggiuntivi-btn">Prenota Subito!</a>
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <h2 className="servizi-aggiuntivi-title">Servizi Aggiuntivi</h2>
+        </ScrollReveal>
+        <ScrollReveal variant="fadeUp" staggerChildren={0.07} className="servizi-aggiuntivi-grid">
+          {['Toilette Bimbi', 'Baby Park', 'Parco Gioco Bimbi', 'Canoe', 'SUP', 'Pedalò', 'Parcheggio Interno', 'Spogliatoio', 'Deposito Canoe e SUP', 'Ricarica per macchine elettriche'].map((servizio, idx) => (
+            <ScrollRevealChild variant="scaleUp" key={idx} className="servizio-aggiuntivo-box">
+              {servizio}
+            </ScrollRevealChild>
+          ))}
+        </ScrollReveal>
+        <ScrollReveal variant="fadeUp" delay={0.3}>
+          <div className="servizi-aggiuntivi-btn-wrapper">
+            <a href="/dove-siamo" className="servizi-aggiuntivi-btn">Prenota Subito!</a>
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* CTA Section */}
       <section className="servizi-cta-section">
-        <div className="servizi-cta-content">
+        <ScrollReveal variant="fadeUp" className="servizi-cta-content">
           <h2 className="servizi-cta-title">Prenota i Nostri Servizi</h2>
           <p className="servizi-cta-desc">Contattaci per informazioni e prenotazioni</p>
           <div className="servizi-cta-buttons">
             <a href="tel:05037448" className="servizi-cta-btn primary">Chiamaci Ora</a>
             <Link to="/contatti" className="servizi-cta-btn secondary">Invia Messaggio</Link>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   );

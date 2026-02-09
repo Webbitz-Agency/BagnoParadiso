@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './Galleria.css';
+import { motion } from 'framer-motion';
 import chiSiamoImg from '../images/canoa.jpg';
+import ScrollReveal from '../components/ScrollReveal';
 
 const categorie = [
   { key: 'tutte', label: 'Tutte le foto' },
@@ -49,6 +51,53 @@ const immagini = [
   { src: require('../images/Galleria/ristorante6.jpeg'), categoria: 'ristorante' },
 ];
 
+/**
+ * LazyImage - Componente per caricamento lazy delle immagini con skeleton
+ * Usa IntersectionObserver per caricare le immagini solo quando visibili
+ */
+const LazyImage = ({ src, alt, className, onClick, style }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' } // Inizia a caricare 200px prima che sia visibile
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={imgRef} className={`lazy-img-wrapper ${isLoaded ? 'loaded' : ''}`} onClick={onClick} style={style}>
+      {/* Skeleton placeholder */}
+      {!isLoaded && <div className="lazy-img-skeleton" />}
+      {/* Immagine reale - caricata solo quando in viewport */}
+      {isInView && (
+        <img
+          src={src}
+          alt={alt}
+          className={className}
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setIsLoaded(true)}
+          style={{ opacity: isLoaded ? 1 : 0 }}
+        />
+      )}
+    </div>
+  );
+};
+
 const Galleria = () => {
   const [categoriaSelezionata, setCategoriaSelezionata] = useState('tutte');
   const [modalImg, setModalImg] = useState(null);
@@ -72,13 +121,19 @@ const Galleria = () => {
           <img src={chiSiamoImg} alt="Bagno Paradiso" className="galleria-hero-img" />
           <div className="galleria-hero-overlay"></div>
         </div>
-        <div className="galleria-hero-content">
+        <motion.div
+          className="galleria-hero-content"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <h1 className="galleria-hero-title">Galleria</h1>
           <p className="galleria-hero-desc">Scopri i momenti più belli del Bagno Paradiso!</p>
-        </div>
+        </motion.div>
       </section>
+
       {/* Selettore categorie */}
-      <div className="galleria-categorie" style={{ marginTop: 48 }}>
+      <ScrollReveal variant="fadeUp" className="galleria-categorie" style={{ marginTop: 48 }}>
         {categorie.map(cat => (
           <button
             key={cat.key}
@@ -88,19 +143,33 @@ const Galleria = () => {
             {cat.label}
           </button>
         ))}
-      </div>
+      </ScrollReveal>
+
       {/* Griglia immagini */}
       <div className="galleria-immagini">
         {immaginiFiltrate.length === 0 ? (
           <div className="galleria-placeholder">Nessuna foto disponibile per questa categoria.</div>
         ) : (
           immaginiFiltrate.map((img, idx) => (
-            <div className="galleria-img-card" key={idx} onClick={() => openModal(img)} style={{cursor:'zoom-in'}}>
-              <img src={img.src} alt={img.categoria} className="galleria-img" />
-            </div>
+            <ScrollReveal
+              variant="fadeUp"
+              delay={Math.min(idx * 0.05, 0.3)}
+              duration={0.5}
+              key={`${categoriaSelezionata}-${idx}`}
+              className="galleria-img-card"
+            >
+              <LazyImage
+                src={img.src}
+                alt={img.categoria}
+                className="galleria-img"
+                onClick={() => openModal(img)}
+                style={{ cursor: 'zoom-in' }}
+              />
+            </ScrollReveal>
           ))
         )}
       </div>
+
       {/* Modale fullscreen */}
       {modalImg && (
         <>
@@ -115,4 +184,4 @@ const Galleria = () => {
   );
 };
 
-export default Galleria; 
+export default Galleria;
