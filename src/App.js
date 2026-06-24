@@ -8,6 +8,7 @@ import Servizi from './pages/Servizi';
 import ChiSiamo from './pages/ChiSiamo';
 import DoveSiamo from './pages/DoveSiamo';
 import Galleria from './pages/Galleria';
+import ContributiRna from './pages/ContributiRna';
 import './App.css';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
               <Route path="/chi-siamo" element={<ChiSiamo />} />
               <Route path="/dove-siamo" element={<DoveSiamo />} />
               <Route path="/galleria" element={<Galleria />} />
+              <Route path="/contributi-rna" element={<ContributiRna />} />
             </Routes>
           </AnimatePresence>
         </main>

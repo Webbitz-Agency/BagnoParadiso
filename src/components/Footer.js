@@ -30,6 +30,7 @@ const Footer = () => {
             <li><Link to="/chi-siamo" className="footer-link">Chi Siamo</Link></li>
             <li><Link to="/dove-siamo" className="footer-link">Dove Siamo</Link></li>
             <li><Link to="/contatti" className="footer-link">Contatti</Link></li>
+            <li><Link to="/contributi-rna" className="footer-link">Contributi RNA</Link></li>
           </ul>
         </div>
         {/* Orari */}

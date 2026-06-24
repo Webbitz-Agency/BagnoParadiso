@@ -1,0 +1,238 @@
+.contributi-page {
+  min-height: 100vh;
+  background: #fff;
+  color: #1e293b;
+}
+
+/* Intestazione */
+.contributi-header {
+  background: #1e293b;
+  padding: 130px 0 56px 0;
+}
+.contributi-header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.contributi-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+.contributi-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+/* Sezioni */
+.contributi-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px 0 24px;
+}
+.contributi-section:last-of-type {
+  padding-bottom: 64px;
+}
+
+/* Card soggetto ricevente */
+.contributi-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px 32px;
+}
+.contributi-card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 18px 0;
+}
+.contributi-anagrafica {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px 32px;
+}
+.contributi-anagrafica div {
+  display: flex;
+  flex-direction: column;
+}
+.contributi-anagrafica dt {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+.contributi-anagrafica dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+/* Titolo anno */
+.contributi-anno-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 0 0 18px 0;
+}
+
+/* Tabella */
+.contributi-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+.contributi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+  min-width: 760px;
+}
+.contributi-table thead th {
+  background: #1e293b;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+  padding: 14px 16px;
+  white-space: nowrap;
+}
+.contributi-table tbody td {
+  padding: 14px 16px;
+  border-top: 1px solid #e2e8f0;
+  color: #475569;
+  vertical-align: top;
+  line-height: 1.5;
+}
+.contributi-table tbody tr:nth-child(even) {
+  background: #f8fafc;
+}
+.contributi-importo {
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+}
+.contributi-rna-ref {
+  font-size: 0.9rem;
+  color: #1e293b;
+  white-space: nowrap;
+}
+.contributi-rna-none {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+.contributi-subtotale-row td {
+  background: #eef2ff !important;
+  font-weight: 700;
+  color: #1e293b;
+  border-top: 2px solid #c7d2fe;
+}
+
+/* Box RNA */
+.contributi-rna-box {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  border-radius: 16px;
+  padding: 32px;
+  color: #fff;
+}
+.contributi-rna-box-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #fff;
+}
+.contributi-rna-box-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0 0 22px 0;
+  opacity: 0.95;
+}
+.contributi-rna-link {
+  display: inline-block;
+  background: #fff;
+  color: #2563eb;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s;
+}
+.contributi-rna-link:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+/* Responsive: tabella a card su mobile */
+@media (max-width: 760px) {
+  .contributi-header {
+    padding-top: 110px;
+  }
+  .contributi-title {
+    font-size: 1.6rem;
+  }
+  .contributi-section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .contributi-card {
+    padding: 22px 18px;
+  }
+  .contributi-table-wrap {
+    overflow-x: visible;
+    border: none;
+    border-radius: 0;
+  }
+  .contributi-table {
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0 14px;
+  }
+  .contributi-table thead {
+    display: none;
+  }
+  .contributi-table tbody tr {
+    display: block;
+    background: #fff !important;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 6px 16px 12px 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  }
+  .contributi-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0;
+    border-top: 1px solid #f1f5f9;
+    text-align: right;
+  }
+  .contributi-table tbody td:first-child {
+    border-top: none;
+  }
+  .contributi-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #64748b;
+    text-align: left;
+    flex-shrink: 0;
+  }
+  .contributi-subtotale-row td[colspan] {
+    display: none;
+  }
+  .contributi-subtotale-row td.contributi-importo {
+    display: flex;
+  }
+  .contributi-subtotale-row td.contributi-importo::before {
+    content: 'Totale anno';
+  }
+  .contributi-rna-box {
+    padding: 24px 18px;
+  }
+}
